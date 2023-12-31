@@ -144,11 +144,14 @@ List<Map<String, dynamic>> combineData(List<Map<String, dynamic>> dataFile1,
     List<Map<String, dynamic>> newVerses = [];
 
     for (int j = 0; j < itemFile2['verses'].length; j++) {
+      int _id = j + 1;
       Map<String, dynamic> temp2 = {
-        "id": j + 1,
+        "id": _id,
         "text": itemFile1['verses'][j]['text'],
         "transliteration": itemFile2['verses'][j]['transliteration'],
-        "translation": itemFile1['verses'][j]['translation']
+        "translation": itemFile1['verses'][j]['translation'],
+        "audio":
+            "audio/${itemFile1["id"].toString().padLeft(3, '0')}/${_id.toString().padLeft(3, '0')}.mp3"
       };
 
       newVerses.add(temp2);
